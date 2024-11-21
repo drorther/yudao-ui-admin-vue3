@@ -5,7 +5,6 @@ ENV EVA_ENTRYPOINT=/api
 
 
 WORKDIR /
-COPY package.json /
 RUN npm install --registry=https://registry.npm.taobao.org
 
 RUN npm run build
