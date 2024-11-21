@@ -8,7 +8,7 @@ ENV PORT 8080
 EXPOSE 80 # replace this with your application's default port, if necessary
 ARG NODE_ENV=dev
 ENV NODE_ENV $NODE_ENV
-
+workdir /workspace
 COPY /workspace/package.json /workspace
 RUN npm install
 COPY . .
