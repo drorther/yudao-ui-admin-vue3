@@ -11,6 +11,6 @@ ENV NODE_ENV $NODE_ENV
 workdir /workspace
 COPY /workspace/package.json /workspace
 RUN npm install
-COPY . .
+COPY /workspace /workspace
 
 CMD [ "npm", "start" ]
