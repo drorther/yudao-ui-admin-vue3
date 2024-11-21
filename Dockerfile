@@ -1,19 +1,7 @@
-FROM node:lts-alpine as builder
-
-# env set
-ENV EVA_ENTRYPOINT=/api
-
-
-WORKDIR /
-RUN npm install --registry=https://registry.npm.taobao.org
-
+FROM node:10-alpine as builder  
+WORKDIR /code  
+ADD package.json /code 
+# 此步将可以充分利用 node_modules 的缓存 
+RUN npm install --production  
+ADD . /code  
 RUN npm run build
-
-FROM nginx:alpine
-LABEL maintainer="ZengPing An <anzengping@momenta.ai>"
-
-COPY /nginx/ /etc/nginx/
-
-COPY  /dist/ /usr/share/nginx/html/
-
-EXPOSE 80
