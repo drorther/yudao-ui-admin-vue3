@@ -6,7 +6,7 @@ FROM node:10.6-alpine
 
 ENV PORT 8080
 EXPOSE 80 # replace this with your application's default port, if necessary
-
+workdir =.
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
