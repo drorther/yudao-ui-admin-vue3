@@ -6,12 +6,10 @@ FROM node:10.6-alpine
 
 ENV PORT 8080
 EXPOSE 80 # replace this with your application's default port, if necessary
-workdir =.
-ARG NODE_ENV=production
+ARG NODE_ENV=dev
 ENV NODE_ENV $NODE_ENV
 
-WORKDIR /usr/src/app
-COPY package.json .
+COPY /workspace/package.json /workspace
 RUN npm install
 COPY . .
 
